@@ -11,7 +11,7 @@ console.log(reverse("hello"));
 ///Integer reversal
 
 function reverseInt(n) {
-  console.log(parseInt(n.toString().split("").reverse().join("")));
+  // console.log(parseInt(n.toString().split("").reverse().join("")));
   return parseInt(n.toString().split("").reverse().join("")) * Math.sign(n);
 }
 console.log(reverseInt(-123));
