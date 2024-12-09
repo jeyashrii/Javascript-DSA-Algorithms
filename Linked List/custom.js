@@ -140,7 +140,7 @@ class LinkedList {
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
 myLinkedList.push(0);
-// myLinkedList.unShift(0);
+myLinkedList.unShift(0);
 // console.log(myLinkedList.pop());
 // console.log(myLinkedList.shift());
 
