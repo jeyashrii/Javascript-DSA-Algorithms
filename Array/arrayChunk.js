@@ -1,19 +1,13 @@
-function chunkArray(arr, chunkSize) {
-  let result = [];
-  for (let i = 0; i < arr.length; i + chunkSize) {
-    result.push(arr.splice(i, i + chunkSize));
-  }
-  return result;
-}
-
-//console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2));
+// Problem Statement:
+// write a function that accepts an array and chunk size.
+// The function should return a new array where the original arrray is split into chunks of specified size.
 
 // Approach
-// create an empty array to hold the chunkSizeset a starting index to keep track of where we ar re in the arrayloop through the array until it meets the end
+// create an empty array to hold the chunkSize .set a starting index to keep track of where we are in the array.loop through the array until it meets the end.
 // extract a chunk of deisred size from the original array
-// add the exrtracted array to the 'chunked' array
+// add the extracted array to the 'chunked' array
 // Move the index forward by the chunk size to get to the next chunk
-// retrun the final arrray of results
+// return the final arrray of results
 const chunk = (array, size) => {
   let index = 0;
   let chunked = [];
@@ -21,7 +15,7 @@ const chunk = (array, size) => {
     let chunk = array.slice(index, index + size);
     console.log("------chunk", chunk);
     chunked.push(chunk);
-    index += +size;
+    index += size;
   }
   return chunked;
 };

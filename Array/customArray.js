@@ -39,7 +39,7 @@ class myArray {
   //   }
   deleteByIndex(index) {
     const item = this.data[index];
-    for (let i = 0; i < this.length - 1; i++) {
+    for (let i = index; i < this.length - 1; i++) {
       this.data[i] = this.data[i + 1];
     }
     delete this.data[this.length - 1];
@@ -57,7 +57,7 @@ Array1.push("c");
 
 //console.log(Array1.pop());
 console.log(Array1);
-// console.log(Array1.shift());
-// console.log(Array1);
-console.log(Array1.deleteByIndex(0));
+console.log(Array1.shift());
 console.log(Array1);
+// console.log(Array1.deleteByIndex(0));
+// console.log(Array1);
