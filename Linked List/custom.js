@@ -41,6 +41,11 @@ class LinkedList {
     }
     return temp;
   }
+  // When you pop() without updating this.tail, the tail property still points to the old last node object even though it’s no longer in the linked chain.
+
+  // That happens because tail is just another reference stored in your LinkedList object, independent of the head → next chain.
+
+  // To keep the list consistent, always reassign this.tail = prev so that tail points to the true last node after removal. ✅
   unShift(value) {
     let newNode = new Node(value);
     if (!this.head) {
@@ -61,7 +66,7 @@ class LinkedList {
     first.next = null;
     this.length--;
     if (this.length === 0) {
-      this.tail = null;
+      this.tail = null; //we dont need this.tail=null here because if we had only one elemnt in the array , then this.head = first.next; already points it to null
     }
     return first;
   }
@@ -71,7 +76,7 @@ class LinkedList {
   }
 
   // getLast() {
-  //   return this.tail;
+  //   return this.tail||undefined;
   // }
 
   getLast() {
@@ -79,6 +84,10 @@ class LinkedList {
       return undefined;
     }
     let temp = this.head;
+    // while(temp.next){
+    //   temp=temp.next
+    // }
+    // return temp;
     while (temp) {
       if (!temp.next) {
         return temp;
@@ -109,7 +118,7 @@ class LinkedList {
   }
   insert(index, value) {
     if (index === 0) {
-      return this.unShift(index);
+      return this.unShift(value);
     }
     if (index === this.length) {
       return this.push(value);
