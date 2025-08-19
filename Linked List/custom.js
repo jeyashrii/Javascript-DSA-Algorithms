@@ -1,6 +1,6 @@
 class Node {
   constructor(value) {
-    this.head = value;
+    this.value = value;
     this.next = null;
   }
 }
@@ -144,23 +144,46 @@ class LinkedList {
     this.tail = null;
     this.length = 0;
   }
+  print() {
+    let values = [];
+    let temp = this.head;
+    while (temp) {
+      values.push(temp.value);
+      temp = temp.next;
+    }
+    console.log(values);
+  }
+  reverse() {
+    let prev = null;
+    let curr = this.head;
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
-myLinkedList.push(0);
-myLinkedList.unShift(0);
-// console.log(myLinkedList.pop());
-// console.log(myLinkedList.shift());
+myLinkedList.push(3);
+myLinkedList.push(4);
+// myLinkedList.unShift(0);
+// // console.log(myLinkedList.pop());
+// // console.log(myLinkedList.shift());
 
-//console.log(myLinkedList.getLast());
-//console.log(myLinkedList.get(1));
-//console.log(myLinkedList.set(2, 4));
-//myLinkedList.insert(1, 4);
-//console.log(myLinkedList);
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.size());
-myLinkedList.clear();
-console.log(myLinkedList.clear());
+// //console.log(myLinkedList.getLast());
+// //console.log(myLinkedList.get(1));
+// //console.log(myLinkedList.set(2, 4));
+// //myLinkedList.insert(1, 4);
+// //console.log(myLinkedList);
+// // console.log(myLinkedList.get(2));
+// // console.log(myLinkedList.size());
+// myLinkedList.clear();
+// console.log(myLinkedList.clear());
 
 console.log(myLinkedList);
+myLinkedList.reverse();
+myLinkedList.print();
