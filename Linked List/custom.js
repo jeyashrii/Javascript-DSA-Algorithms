@@ -154,6 +154,9 @@ class LinkedList {
     console.log(values);
   }
   reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
     let prev = null;
     let curr = this.head;
     while (curr) {
@@ -164,6 +167,26 @@ class LinkedList {
     }
     this.head = prev;
   }
+  //   Example
+
+  // Suppose you have:
+  // 1 → 2 → 3 → null
+
+  // First iteration (curr = 1):
+
+  // Save next = curr.next → 2.
+
+  // Flip: 1.next = null.
+
+  // Move: curr = next → now curr = 2.
+
+  // If you didn’t save next, as soon as you did 1.next = prev, the reference to 2 would be lost forever 🚫. The list would break at 1.
+
+  // So in short:
+
+  // next is a temporary variable to remember the "forward link" before breaking it.
+
+  // Without it, you can’t safely traverse and reverse at the same time.
 }
 
 const myLinkedList = new LinkedList(1);

@@ -75,6 +75,20 @@ class DoublyLinkedList {
     this.length--;
     return temp;
   }
+  reverse() {
+    let prev = null;
+    let curr = this.head;
+    this.tail = curr; // old head becomes new tail
+    while (curr) {
+      let next = curr.next; // save next before breaking link
+      curr.next = prev; // flip next pointer
+      curr.prev = next; // flip prev pointer
+      prev = curr; // move prev forward
+
+      curr = next; // move curr forward
+    }
+    this.head = prev; // last non-null becomes new head
+  }
 }
 const List = new DoublyLinkedList(1);
 List.push(2);
